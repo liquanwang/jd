@@ -17,7 +17,8 @@
     top: 0;
     max-width: 640px;
     padding: 0 50px 0 70px;
-    background-color: #e92322;
+    z-index: 999;
+    /*background-color: #e92322;*/
 }
 .jd_logo {
     width: 56px;
@@ -53,4 +54,44 @@
 	right: 0;
 	top: 0;
 	color: #fff;
+}
+/*:轮播图*/
+.jd_wheel {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.jd_banner {
+	width: 800%;
+}
+.jd_banner li {
+	width: 12.5%;
+	float: left;
+}
+.jd_banner li img {
+	width: 100%;
+}
+/*轮播图导航圆点*/
+.circle {
+	position: absolute;
+	/*width: 108px;
+	height: 14px;*/
+	/*background-color: pink;*/
+	border-radius: 5px;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.circle li {
+	display: block;
+	float: left;
+	width: 6px;
+	height: 6px;
+	background-color: #fff;
+	border-radius: 50%;
+	margin-left: 10px;
+}
+.circle li:first-child {
+background-color: yellow;
+margin-left: 0;
 }
