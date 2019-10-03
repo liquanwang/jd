@@ -17,6 +17,7 @@ input {
 	border: none;
 	border: 1px solid #ccc;
 }
+/*清除浮动*/
 .clearfix::before,.clearfix::after {
 	content: "";
 	display: table;
@@ -26,4 +27,17 @@ input {
 }
 .clearfix {
 	*zoom: 1;
+}
+/*上下左右边框*/
+.b_left {
+	border-left: 1px solid #ccc;
+}
+.b_top {
+	border-top: 1px solid #ccc;
+}
+.b_right {
+	border-right: 1px solid #ccc;
+}
+.b_bottom {
+	border-bottom: 1px solid #ccc;
 }
