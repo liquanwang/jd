@@ -30,68 +30,90 @@
     background-size: 200px 200px;
 }
 .search {
-	width: 100%;
-	height: 30px;
-	border-radius: 15px;
-	margin-top: 2px;
-	padding-left: 30px;
+    width: 100%;
+    height: 30px;
+    border-radius: 15px;
+    margin-top: 2px;
+    padding-left: 30px;
 }
 .loupe_search {
-	position: absolute;
-	display: block;
-	width: 23px;
-	height: 23px;
-	top: 8px;
-	left: 73px;
-	background: url("../images/jd-sprites.png") -56px -108px;
-	background-size: 200px 200px;
+    position: absolute;
+    display: block;
+    width: 23px;
+    height: 23px;
+    top: 8px;
+    left: 73px;
+    background: url("../images/jd-sprites.png") -56px -108px;
+    background-size: 200px 200px;
 }
 .login {
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	line-height: 40px;
-	right: 0;
-	top: 0;
-	color: #fff;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    right: 0;
+    top: 0;
+    color: #fff;
 }
 /*:轮播图*/
 .jd_wheel {
-	width: 100%;
-	overflow: hidden;
-	position: relative;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
 }
 .jd_banner {
-	width: 800%;
+    width: 800%;
 }
 .jd_banner li {
-	width: 12.5%;
-	float: left;
+    width: 12.5%;
+    float: left;
 }
 .jd_banner li img {
-	width: 100%;
+    width: 100%;
+    vertical-align: bottom;
 }
 /*轮播图导航圆点*/
 .circle {
-	position: absolute;
-	/*width: 108px;
+    position: absolute;
+    /*width: 108px;
 	height: 14px;*/
-	/*background-color: pink;*/
-	border-radius: 5px;
-	bottom: 10px;
-	left: 50%;
-	transform: translateX(-50%);
+    /*background-color: pink;*/
+    border-radius: 5px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .circle li {
-	display: block;
-	float: left;
-	width: 6px;
-	height: 6px;
-	background-color: #fff;
-	border-radius: 50%;
-	margin-left: 10px;
+    display: block;
+    float: left;
+    width: 6px;
+    height: 6px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-left: 10px;
 }
 .circle li:first-child {
-background-color: yellow;
-margin-left: 0;
+    background-color: yellow;
+    margin-left: 0;
+}
+/*导航块*/
+.jd_nav {
+    width: 100%;
+    height: 180px;
+    background-color: white;
+    padding: 10px 0;
+}
+.nav_li {
+    text-align: center;
+}
+.nav_li li {
+    float: left;
+    width: 25%;
+    margin: 10px 0;
+}
+.nav_li li img {
+    width: 40px;
+}
+.li_p {
+	font-size: 12px;
 }
