@@ -62,10 +62,12 @@
     position: relative;
 }
 .jd_banner {
-    width: 800%;
+    /*width: 1000%;*/
+    position: relative;
+    display: block;
 }
 .jd_banner li {
-    width: 12.5%;
+    /*width: 10%;*/
     float: left;
 }
 .jd_banner li img {

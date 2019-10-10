@@ -2,6 +2,8 @@ body,html,div,ul,li,a,p,img,input,h1,h2,h3,h4,h5,h6 {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	// 去掉手机端特有的高亮显示
+	-webkit-tap-highlight-color: transparent;
 }
 li {
 	list-style: none;
