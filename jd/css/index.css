@@ -46,7 +46,7 @@
     background: url("../images/jd-sprites.png") -56px -108px;
     background-size: 200px 200px;
 }
-.login {
+.login,.login:hover {
     position: absolute;
     width: 40px;
     height: 40px;
