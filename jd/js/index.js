@@ -71,7 +71,6 @@ function wheelBanner() {
     // li 的初始索引值为1
     var index = 1;
     jd_banner.style.left = -wheelWidth + 'px';
-    //console.log(wheelWidth);
     // 屏幕大小改变时候重新计算偏移
     window.onresize = function () {
         wheelWidth = jd_wheel.offsetWidth;
@@ -82,35 +81,82 @@ function wheelBanner() {
         }
         jd_banner.style.left = -index * wheelWidth + 'px';
     }
-    var timeId = setInterval(function () {
-        index++;
-        jd_banner.style.left = (-index * wheelWidth) + 'px';
-        jd_banner.style.transition = 'left 1s';
-        //console.log(index);
-        setTimeout(function () {
-            if (index == count - 1) {
-                index = 1;
-                jd_banner.style.transition = 'nome';
-                jd_banner.style.left = (-index * wheelWidth) + 'px'
-            }
-        }, 1000);
-    }, 2000);
+    // 点标记的设置
+    function setCircle(index) {
+        var circle = document.querySelector('.circle').querySelectorAll('li');
+        for (var i = 0; i <circle.length; i++) {
+            circle[i].classList.remove('circle_li_color');
+            circle[index -1].classList.add('circle_li_color');
+        }
+    }
+
+    // 定时器
+    var timeId;
+    startTime();
+    function startTime() {
+        timeId = setInterval(function () {
+            index++;
+            jd_banner.style.left = (-index * wheelWidth) + 'px';
+            jd_banner.style.transition = 'left 1s';
+            //console.log(index);
+            setTimeout(function () {
+                if (index == count - 1) {
+                    index = 1;
+                    jd_banner.style.transition = 'none';
+                    jd_banner.style.left = (-index * wheelWidth) + 'px'
+                }
+            }, 1000);
+        }, 1500);
+    }
+
     // 手指滑动轮播
-    var startX,moveX, phaseX;
+    var startX, moveX, phaseX;
+     // 条件
+    var isEnd = true;
     jd_banner.addEventListener('touchstart', function (e) {
         clearInterval(timeId);
         startX = e.targetTouches[0].clientX;
-        //startY = e.targetTouches[0].clientY;
-        //console.log(startX);
     });
-    jd_banner.addEventListener('touchmove',function(e) {
-        moveX = e.targetTouches[0].clientX;
-        //moveY = e.targetTouches[0].clientY;
-        phaseX = moveX - startX;
-        jd_banner.style.transition = 'nome';
-       jd_banner.style.left = (-index*wheelWidth + phaseX) +'px';
+    jd_banner.addEventListener('touchmove', function (e) {
+        if (isEnd == true) {
+            moveX = e.targetTouches[0].clientX;
+            phaseX = moveX - startX;
+            jd_banner.style.transition = 'none';
+            jd_banner.style.left = (-index * wheelWidth + phaseX) + 'px';
+        }
     });
-    //jd_banner.addEventListener('touchend',function(e) {
-    //    timeId();
-    //});
+    jd_banner.addEventListener('touchend', function (e) {
+        isEnd = false;
+        if (Math.abs(phaseX) > 100) {
+            if (phaseX > 0) {
+                index--;
+            } else {
+                index++;
+            }
+            jd_banner.style.animation = 'left 1s';
+            jd_banner.style.left = -index * wheelWidth + 'px';
+        } else if (Math.abs(phaseX > 0)) {
+            jd_banner.style.animation = 'left 1s';
+            jd_banner.style.left = -index * wheelWidth + 'px';
+        }
+        startX = 0;
+        moveX = 0;
+        phaseX = 0;
+        startTime();
+    });
+    jd_banner.addEventListener('webkitTransitionEnd', function () {
+        console.log(index);
+        console.log(count - 1);
+        if (index == count - 1) {
+            index = 1;
+            jd_banner.style.transition = 'none';
+            jd_banner.style.left = -index * wheelWidth + 'px';
+        } else if (index == 0) {
+            index = count - 2;
+            jd_banner.style.transition = 'none';
+            jd_banner.style.left = -index * wheelWidth + 'px';
+        }
+        setCircle(index);
+        isEnd = true;
+    });
 }

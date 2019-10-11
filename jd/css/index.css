@@ -78,7 +78,7 @@
 .circle {
     position: absolute;
     /*width: 108px;
-	height: 14px;*/
+    height: 14px;*/
     /*background-color: pink;*/
     border-radius: 5px;
     bottom: 5px;
@@ -95,8 +95,10 @@
     margin-left: 10px;
 }
 .circle li:first-child {
-    background-color: yellow;
     margin-left: 0;
+}
+.circle_li_color {
+    background-color: yellow!important;
 }
 /*导航块*/
 .jd_nav {
